@@ -11,11 +11,11 @@ GET  http://localhost:8189/api/v1/student/
 Accept: application/json
 
 ####
-GET  http://localhost:8189/api/v1/student/10
+GET  http://localhost:8189/api/v1/student/1
 Accept: application/json
 
 ####
-DELETE  http://localhost:8189/api/v1/student/1
+DELETE  http://localhost:8189/api/v1/student/del/1
 Accept: application/json
 
 ####
@@ -23,6 +23,6 @@ PUT  http://localhost:8189/api/v1/student/
 Content-Type:application/json
 
 {
-"id": "1",
+"id": "2",
 "name": "Алиев",
  "age": "60"}

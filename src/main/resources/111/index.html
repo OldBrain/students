@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Student</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
+
+</head>
+
+<body ng-app="student-front">
+<div class="container">
+    <div ng-controller="indexController" class="shadow p-3 mb-5 bg-body rounded">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!--            <div class="shadow p-3 mb-5 bg-body rounded">Regular shadow-->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+
+                        <a class="btn btn-outline-dark" href="#!/" style="font-weight: bold;">Spring students</a>
+                    </li>
+
+
+                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">О проекте</button>
+
+                    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasBottomLabel">О проекте</h5>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body small">
+                            <h5>Это домашнее задание студента образовательного портала GeekBrains,
+                                факультета Geek University Java-разработки.
+                                Тема: "Подготовка к собеседованию Java-разработчика"</h5>
+
+                        </div>
+                    </div>
+
+                </ul>
+            </div>
+
+
+            <li class="nav-item">
+
+            </li>
+
+        </nav>
+
+
+        <div class="col-sm-6 col-md-10">
+            <table class="table">
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Имя</td>
+                    <td>Возраст</td>
+                    <td></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="p in studentList">
+                    <td>{{p.id}}</td>
+                    <td>{{p.name}}</td>
+                    <td>{{p.age}}</td>
+                    <td>
+                                        <button class="btn btn-primary" ng-click="navToEditStudentPage(p.id)">Изменить</button>
+                        <a class="nav-link" href="#!/create_student/">Создать {{p.id}}</a>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" ng-click="removeItem(p.id)">X</button>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+
+            <p></p>
+
+        </div>
+    </div>
+
+
+
+
+    <ng-view></ng-view>
+
+    <script src="index.js"></script>
+    <script src="create_student/create_student.js"></script>
+
+</div>
+</body>
+</html>
