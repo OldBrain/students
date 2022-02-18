@@ -1,15 +1,27 @@
 version: '4.5.0'
-
-volumes:
-  cloud-postgres:
-    driver: local
-
 services:
-  postgres:
+
+  geek-frontend:
+    image: frontend:latest
+    restart: always
+    ports:
+      - 8081:80
+  geek-crud-example-backend:
+    image: registry.heroku.com/geek-students/web:latest
+    ports:
+      - 8189
+    environment:
+      DB_HOST: "db"
+    restart: always
+    depends_on:
+      - db
+    command: bash -c "/apps/wait-for-service.sh db 5432 && /apps/entrypoint.sh"
+
+  db:
     image: postgres:9.6
     domainname: postgres
     ports:
-      - "5433:5432"
+      - "5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
@@ -19,4 +31,6 @@ services:
       timeout: 1s
       retries: 2
 
-
+volumes:
+  cloud-postgres:
+    driver: local
