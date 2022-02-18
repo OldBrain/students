@@ -1,0 +1,17 @@
+<div class="row py-2">
+  <div class="col-12">
+    <form action="#" method="post">
+      <div class="form-group">
+        <label>Name</label>
+        <input [(ngModel)]="student.name" type="text" class="form-control" id="name" name="name" placeholder="Enter name">
+      </div>
+      <div class="form-group">
+        <label>Age</label>
+        <input [(ngModel)]="student.age" type="text" class="form-control" id="age" name="age" placeholder="Enter username">
+      </div>
+      <button (click)="add(student)" type="submit" class="btn btn-primary">Добавить</button>
+      <button (click)="update(student)" type="submit" class="btn btn-primary">Обновить</button>
+    </form>
+  </div>
+</div>
+

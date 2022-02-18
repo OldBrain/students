@@ -1,0 +1,35 @@
+<button class="btn btn-outline-primary" type="button" data-bs-toggle="canvas" routerLink='/student/new' aria-controls="canvasBottom">Добавить студента</button>
+<div class="col-sm-6 col-md-10">
+  <table class="table">
+    <thead>
+    <tr>
+      <td>ID</td>
+      <td>Имя</td>
+      <td>Возраст</td>
+      <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let student of studentList">
+      <td>{{student.id}}</td>
+      <td>{{student.name}}</td>
+      <td>{{student.age}}</td>
+      <td>
+        <a class="btn btn-success" routerLink='/student/{{student.id}}'><i class="fas fa-edit"></i></a>
+<!--        <a class="btn btn-danger" href="/student/del/{{student.id}}"><i class="far fa-trash-alt"></i></a>-->
+        <a class="btn btn-danger" (click)="pressButton(student)"><i class="far fa-trash-alt"></i></a>
+
+<!--        <button class="btn btn-primary" type="button" (click)="studentService.remove(student.id)">-->
+<!--          <span class="glyphicon glyphicon-ok"></span>-->
+<!--        </button>-->
+      </td>
+      <td>
+      </td>
+
+    </tr>
+    </tbody>
+  </table>
+  <p></p>
+
+
+</div>

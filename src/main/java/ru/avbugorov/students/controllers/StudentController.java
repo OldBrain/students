@@ -15,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/student")
+@CrossOrigin(origins = "*")
 public class StudentController {
 
     private final StudentService studentService;
@@ -36,7 +37,7 @@ public class StudentController {
                 orElseThrow(() -> new NotFoundException("Нет студента с ID=" + id));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("del/{id}")
     public void deleteById(@PathVariable Long id) {
         studentService.deleteById(id);
     }
